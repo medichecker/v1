@@ -25,7 +25,7 @@ export function Sidebar({ currentPath = "/dashboard", emailPreview }: SidebarPro
       <div className="p-4">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 text-teal-600 stroke-current fill-none" />
-          <h1 className="text-xl font-bold text-teal-600">MediChecker</h1>
+          <h1 className="text-xl font-bold text-teal-600">veyra</h1>
         </Link>
       </div>
       <nav className="flex-1 p-4">

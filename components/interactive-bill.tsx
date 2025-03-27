@@ -216,7 +216,7 @@ export default function InteractiveBill() {
             flipped ? "text-black-900" : "text-black-500"
           } mb-2`}
         >
-          {flipped ? "Without MediChecker" : "With MediChecker"}
+          {flipped ? "Without veyra" : "With veyra"}
         </h2>
         <p className="text-xs text-black-400">Throw the bill away, or click to flip</p>
       </motion.div>

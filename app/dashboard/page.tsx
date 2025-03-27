@@ -163,7 +163,7 @@ export default function Dashboard() {
             </div>
 
             {/* Legal Issues */}
-            <div className="flex-1 bg-white p-6 rounded-xl shadow-lg flex flex-col">
+            {/* <div className="flex-1 bg-white p-6 rounded-xl shadow-lg flex flex-col">
               <div className="flex justify-between items-center mb-6">
                 <h2 className="text-2xl font-bold text-gray-800 flex items-center">
                   <ShieldCheck className="h-5 w-5 mr-2 text-teal-600" />
@@ -200,7 +200,7 @@ export default function Dashboard() {
                 <span className="font-medium text-gray-700">Total Legal Issues:</span>
                 <span className="text-xl font-bold text-teal-600">{totalLegalIssues}</span>
               </div>
-            </div>
+            </div> */}
           </div>
         </main>
       </div>

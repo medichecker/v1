@@ -37,7 +37,7 @@ export default function Home() {
       name: "Sarah T.",
       location: "Chicago",
       image: "/placeholder.svg?height=60&width=60",
-      text: "MediChecker reduced my ER bill from $3,500 to $1,200!",
+      text: "veyra reduced my ER bill from $3,500 to $1,200!",
     },
     {
       name: "Michael R.",
@@ -75,13 +75,13 @@ export default function Home() {
       >
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
         </div>
         <nav className="hidden md:flex gap-6">
           <Link href="/about" className="text-black-600/80 hover:text-black-600">
             About Us
           </Link>
-          <a href="mailto:usemedichecker@gmail.com" className="text-black-600/80 hover:text-black-600">
+          <a href="mailto:useveyra@gmail.com" className="text-black-600/80 hover:text-black-600">
             Contact
           </a>
         </nav>
@@ -116,7 +116,7 @@ export default function Home() {
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
                 <Button asChild size="lg" className="bg-black text-white hover:bg-teal-600 rounded-full px-8">
-                  <Link href="/get-started">Get Started</Link>
+                  <Link href="/google-signup">Get Started</Link>
                 </Button>
                 <Button
                   asChild
@@ -347,13 +347,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      Is Medichecker HIPAA compliant?
+                      Is veyra HIPAA compliant?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      MediChecker is committed to protecting your medical information and follows industry best practices 
+                      veyra is committed to protecting your medical information and follows industry best practices 
                       to ensure security. For our medical bill analysis service, we do not record any PHI(Personal Health 
                       Information) and do not store any billing info. We continuously ensure that we are meeting the 
                       highest data protection standards.
@@ -364,13 +364,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      How does Medichecker work?
+                      How does veyra work?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      MediChecker helps users analyze medical bills for errors and overcharges. Simply upload your 
+                      veyra helps users analyze medical bills for errors and overcharges. Simply upload your 
                       medical bill, and our system will scan it for potential discrepancies. If issues are detected, 
                       you can connect with a professional medical bill advocate who can help negotiate and dispute 
                       charges on your behalf.
@@ -387,7 +387,7 @@ export default function Home() {
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      To use MediChecker, you need to provide a copy of your itemized medical bill. If you choose 
+                      To use veyra, you need to provide a copy of your itemized medical bill. If you choose 
                       to work with an advocate, additional details like insurance information and a HIPAA release 
                       form may be required for negotiation purposes.
                     </p>
@@ -397,13 +397,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      Can I use MediChecker even if I have insurance?
+                      Can I use veyra even if I have insurance?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      Yes, MediChecker works for both insured and uninsured individuals. If your insurance hasn't 
+                      Yes, veyra works for both insured and uninsured individuals. If your insurance hasn't 
                       paid yet, we can help review your bill for errors before payment. If your claim has been 
                       processed, you may still be able to appeal charges or negotiate remaining balances. For 
                       uninsured users, we assist in identifying billing errors and exploring discounts or 
@@ -437,7 +437,7 @@ export default function Home() {
             <div className="mb-6 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
                 <ShieldCheck className="h-6 w-6 text-white stroke-current fill-none" />
-                <h3 className="text-xl font-bold">MediChecker</h3>
+                <h3 className="text-xl font-bold">veyra</h3>
               </div>
               <p className="text-sm text-white/70 max-w-xs">
                 Making healthcare more affordable through bill analysis and negotiation.
@@ -475,7 +475,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-white/20 mt-8 pt-8 text-center md:text-left text-sm text-white/50">
-            <p>© {new Date().getFullYear()} MediChecker. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} veyra. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -41,7 +41,7 @@ export default function UserDetailsPage() {
   // Retrieve medical bill data from localStorage
   useEffect(() => {
     try {
-      const visitDataJson = localStorage.getItem("medichecker_visit_data");
+      const visitDataJson = localStorage.getItem("veyra_visit_data");
       if (visitDataJson) {
         const visitData = JSON.parse(visitDataJson);
         setSavedVisitData(visitData);
@@ -117,7 +117,7 @@ export default function UserDetailsPage() {
       }
 
       // Clear stored data after successful submission
-      localStorage.removeItem("medichecker_visit_data");
+      localStorage.removeItem("veyra_visit_data");
       
       // Redirect to dashboard or profile page
       router.push("/dashboard");
@@ -134,7 +134,7 @@ export default function UserDetailsPage() {
       <header className="container mx-auto py-6 flex justify-center">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
         </Link>
       </header>
 

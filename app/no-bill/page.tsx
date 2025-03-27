@@ -58,7 +58,7 @@ export default function NoBillPage() {
       <header className="container mx-auto py-6 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
         </Link>
       </header>
 

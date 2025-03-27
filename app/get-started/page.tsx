@@ -43,7 +43,7 @@ export default function GetStarted() {
       <header className="container mx-auto py-6 flex justify-between items-center">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
         </Link>
       </header>
 
@@ -249,6 +249,8 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
     hospital: ""
   })
   const [showErrors, setShowErrors] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
+  const [uploadError, setUploadError] = useState<string | null>(null)
 
   const handleDragOver = (e: React.DragEvent) => {
     e.preventDefault()
@@ -279,8 +281,10 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
     setFormData(prev => ({ ...prev, [id]: value }))
   }
 
-  const validateForm = () => {
+  const uploadBill = async () => {
+    // Validate form
     setShowErrors(true)
+    setUploadError(null)
     
     const isValid = 
       file !== null && 
@@ -289,15 +293,45 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
       formData.city.trim() !== "" && 
       formData.hospital.trim() !== ""
     
-    if (isValid) {
-      // Save data to localStorage before proceeding
-      const visitData = {
-        file: file ? file.name : null,
-        fileSize: file ? file.size : null,
-        ...formData
+    if (!isValid) {
+      return
+    }
+
+    // Prepare form data for upload
+    const formDataToSend = new FormData()
+    formDataToSend.append('file', file!)
+    formDataToSend.append('insurance', formData.insurance)
+    formDataToSend.append('city', formData.city)
+    formDataToSend.append('state', formData.state)
+    formDataToSend.append('hospital_name', formData.hospital)
+    
+    // Generate a temporary UID (you might want to replace this with a more robust method)
+    const uid = localStorage.getItem('user_uid') || `temp_${Date.now()}`
+    formDataToSend.append('uid', uid)
+
+    try {
+      setIsLoading(true)
+      const response = await fetch('https://medichecker.pythonanywhere.com/billanalysis', {
+        method: 'POST',
+        body: formDataToSend
+      })
+
+      if (!response.ok) {
+        throw new Error('Upload failed')
       }
-      localStorage.setItem('medichecker_visit_data', JSON.stringify(visitData))
+
+      const responseData = await response.json()
+      
+      // Save the response or analysis result to localStorage if needed
+      localStorage.setItem('bill_analysis_result', JSON.stringify(responseData))
+
+      // Proceed to next step
       onNext()
+    } catch (error) {
+      console.error('Upload error:', error)
+      setUploadError('Failed to upload bill. Please try again.')
+    } finally {
+      setIsLoading(false)
     }
   }
 
@@ -453,22 +487,31 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
             )}
           </div>
         </div>
+
+        {uploadError && (
+          <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mt-4">
+            {uploadError}
+          </div>
+        )}
         
         <div className="mt-8 flex justify-between">
           <Button variant="outline" asChild className="border-black text-black hover:bg-gray-100">
             <Link href="/no-bill">Don't have a bill yet?</Link>
           </Button>
           <Button 
-            onClick={validateForm} 
+            onClick={uploadBill} 
             className="bg-black hover:bg-black"
+            disabled={isLoading}
           >
-            Continue <ArrowRight className="ml-2 h-4 w-4 stroke-current fill-none" />
+            {isLoading ? "Uploading..." : "Continue"} 
+            {!isLoading && <ArrowRight className="ml-2 h-4 w-4 stroke-current fill-none" />}
           </Button>
         </div>
       </CardContent>
     </Card>
   )
 }
+
 function ScanBillStep({ onNext }: { onNext: () => void }) {
   return (
     <Card className="shadow-lg border-black-100">
@@ -567,7 +610,7 @@ function SaveMoneyStep() {
 
 //   // Check if we have medical data in localStorage
 //   useEffect(() => {
-//     const visitData = localStorage.getItem('medichecker_visit_data');
+//     const visitData = localStorage.getItem('veyra_visit_data');
 //     setHasVisitData(!!visitData);
 //     console.log("Existing visit data:", visitData ? "Found" : "None");
 //   }, []);

@@ -18,7 +18,7 @@ export default function SignupPage() {
 
   // Check if we have medical data in localStorage
   useEffect(() => {
-    const visitData = localStorage.getItem('medichecker_visit_data');
+    const visitData = localStorage.getItem('veyra_visit_data');
     setHasVisitData(!!visitData);
     console.log("Existing visit data:", visitData ? "Found" : "None");
   }, []);
@@ -33,7 +33,7 @@ export default function SignupPage() {
         email,
         password,
         options: {
-          emailRedirectTo: `${window.location.origin}/user-details`
+          emailRedirectTo: `${window.location.origin}/get-started`
         }
       });
 
@@ -43,8 +43,8 @@ export default function SignupPage() {
         return;
       }
 
-      // Redirect to /user-details after successful sign-up
-      router.push("/user-details");
+      // Redirect to /get-started after successful sign-up
+      router.push("/get-started");
     } catch (err) {
       console.error("Unexpected error:", err);
       setError("An unexpected error occurred");
@@ -61,7 +61,7 @@ export default function SignupPage() {
       const { data, error: signupError } = await supabase.auth.signInWithOAuth({
         provider: "google",
         options: {
-          redirectTo: `${window.location.origin}/user-details`
+          redirectTo: `${window.location.origin}/get-started`
         }
       });
 
@@ -72,7 +72,7 @@ export default function SignupPage() {
       }
       
       // No need to redirect here as Supabase OAuth handles it
-      // The redirectTo option will send the user to /user-details after Google auth
+      // The redirectTo option will send the user to /get-started after Google auth
     } catch (err) {
       console.error("Unexpected error:", err);
       setError("An unexpected error occurred");
@@ -85,14 +85,14 @@ export default function SignupPage() {
       <header className="container mx-auto py-6 flex justify-center">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
         </Link>
       </header>
 
       <main className="flex items-center justify-center p-4 w-full">
         <Card className="w-full max-w-md shadow-lg border-black-100 rounded-lg">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-xl font-bold text-black-600">Welcome to MediChecker</CardTitle>
+            <CardTitle className="text-xl font-bold text-black-600">Welcome to veyra</CardTitle>
             <CardDescription className="text-black-500">Sign up to create your account</CardDescription>
             
             {hasVisitData && (

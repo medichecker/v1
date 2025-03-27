@@ -24,13 +24,13 @@ export default function PrivacyPolicy() {
       >
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link href="/" className="text-black-600/80 hover:text-black-600">
             Home
           </Link>
-          <a href="mailto:usemedichecker@gmail.com" className="text-black-600/80 hover:text-black-600">
+          <a href="mailto:useveyra@gmail.com" className="text-black-600/80 hover:text-black-600">
             Contact
           </a>
         </nav>
@@ -47,13 +47,13 @@ export default function PrivacyPolicy() {
             
             <div className="prose prose-lg max-w-none text-black-600/80">
               <p className="mb-8">
-                MediChecker ("we," "us," or "our") respects your privacy and is committed to protecting it through compliance with this Privacy Policy. 
+                veyra ("we," "us," or "our") respects your privacy and is committed to protecting it through compliance with this Privacy Policy. 
                 This Privacy Policy describes the types of information we may collect from you, how we use it, and your rights and choices regarding your personal data.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">1. Scope of This Privacy Policy</h2>
               <p className="mb-8">
-                This Privacy Policy applies to the personal information MediChecker collects through our website, mobile applications, and any other services we provide 
+                This Privacy Policy applies to the personal information veyra collects through our website, mobile applications, and any other services we provide 
                 (collectively, the "Services"). By using the Services, you acknowledge and agree to the terms outlined in this Privacy Policy. If you do not agree with 
                 our practices, please do not use the Services.
               </p>
@@ -101,7 +101,7 @@ export default function PrivacyPolicy() {
               <ul className="list-disc pl-6 mb-8">
                 <li>With Third-Party Service Providers: We work with trusted partners for payment processing, cloud storage, security, and analytics.</li>
                 <li>For Legal Compliance: We may disclose your information if required by law, subpoena, or to protect our legal rights.</li>
-                <li>In Business Transfers: If MediChecker undergoes a merger, acquisition, or sale of assets, your data may be part of the transferred assets.</li>
+                <li>In Business Transfers: If veyra undergoes a merger, acquisition, or sale of assets, your data may be part of the transferred assets.</li>
               </ul>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">5. Your Rights and Choices</h2>
@@ -111,7 +111,7 @@ export default function PrivacyPolicy() {
                 <li>Deletion: You may request the deletion of your personal data, subject to legal and operational requirements.</li>
                 <li>Marketing Preferences: You can opt out of marketing communications by following the unsubscribe instructions in our emails.</li>
               </ul>
-              <p className="mb-8">To exercise these rights, contact us at contact@medichecker.com</p>
+              <p className="mb-8">To exercise these rights, contact us at contact@veyra.com</p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">6. Data Security</h2>
               <p className="mb-8">
@@ -155,7 +155,7 @@ export default function PrivacyPolicy() {
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">12. Contact Us</h2>
               <p className="mb-4">If you have any questions or concerns about this Privacy Policy, please contact us at:</p>
               <p className="mb-8">
-                MediChecker<br />
+                veyra<br />
                 Email: contact@medicalbillchecker.com
               </p>
             </div>
@@ -169,7 +169,7 @@ export default function PrivacyPolicy() {
             <div className="mb-6 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
                 <ShieldCheck className="h-6 w-6 text-white stroke-current fill-none" />
-                <h3 className="text-xl font-bold">MediChecker</h3>
+                <h3 className="text-xl font-bold">veyra</h3>
               </div>
               <p className="text-sm text-white/70 max-w-xs">
                 Making healthcare more affordable through bill analysis and negotiation.
@@ -207,7 +207,7 @@ export default function PrivacyPolicy() {
           </div>
           
           <div className="border-t border-white/20 mt-8 pt-8 text-center md:text-left text-sm text-white/50">
-            <p>© {new Date().getFullYear()} MediChecker. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} veyra. All rights reserved.</p>
           </div>
         </div>
       </footer>

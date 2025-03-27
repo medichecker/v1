@@ -15,7 +15,7 @@ interface RootLayoutProps {
 }
 
 export const metadata: Metadata = {
-  title: "MediChecker",
+  title: "veyra",
   description: "Save money on your medical bills with expert advocacy",
     generator: 'v0.dev'
 }

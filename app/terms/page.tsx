@@ -24,13 +24,13 @@ export default function TermsAndConditions() {
       >
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link href="/" className="text-black-600/80 hover:text-black-600">
             Home
           </Link>
-          <a href="mailto:usemedichecker@gmail.com" className="text-black-600/80 hover:text-black-600">
+          <a href="mailto:useveyra@gmail.com" className="text-black-600/80 hover:text-black-600">
             Contact
           </a>
         </nav>
@@ -47,7 +47,7 @@ export default function TermsAndConditions() {
             <div className="prose prose-lg max-w-none text-black-600/80">
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">1. Introduction</h2>
               <p className="mb-8">
-                These Terms and Conditions ("Terms") govern your access to and use of Medichecker's services, including but not limited to the Medichecker website, applications, and related services (collectively, the "Service").
+                These Terms and Conditions ("Terms") govern your access to and use of veyra's services, including but not limited to the veyra website, applications, and related services (collectively, the "Service").
               </p>
               <p className="mb-8">
                 By accessing or using the Service, you agree to comply with and be bound by these Terms. If you do not agree to these Terms, you may not use the Service.
@@ -55,10 +55,10 @@ export default function TermsAndConditions() {
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">2. Definitions</h2>
               <ul className="list-disc pl-6 mb-8">
-                <li>"MediChecker," "we," "us," or "our" refers to MediChecker Inc.</li>
+                <li>"veyra," "we," "us," or "our" refers to veyra Inc.</li>
                 <li>"User," "you," or "your" refers to the individual or entity accessing or using the Service.</li>
                 <li>"Account" means a registered user profile within the Service.</li>
-                <li>"Advocate" refers to a medical bill advocate utilizing MediChecker's platform to offer negotiation and dispute services.</li>
+                <li>"Advocate" refers to a medical bill advocate utilizing veyra's platform to offer negotiation and dispute services.</li>
               </ul>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">3. Eligibility</h2>
@@ -68,7 +68,7 @@ export default function TermsAndConditions() {
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">4. Service Overview</h2>
               <p className="mb-8">
-                MediChecker provides a platform that allows users to upload medical bills for analysis and connects them with professional medical bill advocates who negotiate and dispute charges on their behalf. MediChecker does not guarantee specific outcomes or financial savings.
+                veyra provides a platform that allows users to upload medical bills for analysis and connects them with professional medical bill advocates who negotiate and dispute charges on their behalf. veyra does not guarantee specific outcomes or financial savings.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">5. Account Registration and Security</h2>
@@ -82,11 +82,11 @@ export default function TermsAndConditions() {
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">6. Fees and Payment</h2>
               <ul className="list-disc pl-6 mb-8">
-                <li>The first 50 users who sign up for MediChecker will be able to upload medical bills for free.</li>
-                <li>After the first 50 users, MediChecker will charge a $1 fee per bill uploaded.</li>
+                <li>The first 50 users who sign up for veyra will be able to upload medical bills for free.</li>
+                <li>After the first 50 users, veyra will charge a $1 fee per bill uploaded.</li>
                 <li>By using any paid features, you agree to pay all fees associated with the Service as outlined in the applicable pricing schedule.</li>
-                <li>MediChecker reserves the right to update fees at any time, with notice provided to users.</li>
-                <li>MediChecker is not responsible for any third party failed.</li>
+                <li>veyra reserves the right to update fees at any time, with notice provided to users.</li>
+                <li>veyra is not responsible for any third party failed.</li>
               </ul>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">7. Communication and Consent</h2>
@@ -110,17 +110,17 @@ export default function TermsAndConditions() {
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">10. Disclaimers</h2>
               <p className="mb-8">
-                MediChecker provides the Service "as is" without warranties of any kind, whether express or implied. We do not guarantee that the Service will be uninterrupted, error-free, or secure.
+                veyra provides the Service "as is" without warranties of any kind, whether express or implied. We do not guarantee that the Service will be uninterrupted, error-free, or secure.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">11. Limitation of Liability</h2>
               <p className="mb-8">
-                To the fullest extent permitted by law, MediChecker shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use of the Service.
+                To the fullest extent permitted by law, veyra shall not be liable for any direct, indirect, incidental, or consequential damages resulting from your use of the Service.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">12. Indemnification</h2>
               <p className="mb-8">
-                You agree to indemnify and hold MediChecker harmless from any claims, liabilities, damages, or expenses arising from your use of the Service or violation of these Terms.
+                You agree to indemnify and hold veyra harmless from any claims, liabilities, damages, or expenses arising from your use of the Service or violation of these Terms.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">13. Termination</h2>
@@ -140,12 +140,12 @@ export default function TermsAndConditions() {
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">16. Amendments</h2>
               <p className="mb-8">
-                MediChecker may update these Terms at any time by posting a revised version on the Service. Continued use of the Service after such updates constitutes your acceptance of the new Terms.
+                veyra may update these Terms at any time by posting a revised version on the Service. Continued use of the Service after such updates constitutes your acceptance of the new Terms.
               </p>
 
               <h2 className="text-2xl font-bold mt-12 mb-4 text-black-600">17. Contact Information</h2>
               <p className="mb-8">
-                For any questions regarding these Terms, please contact us at contact@medichecker.com
+                For any questions regarding these Terms, please contact us at contact@veyra.com
               </p>
             </div>
           </div>
@@ -158,7 +158,7 @@ export default function TermsAndConditions() {
             <div className="mb-6 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
                 <ShieldCheck className="h-6 w-6 text-white stroke-current fill-none" />
-                <h3 className="text-xl font-bold">MediChecker</h3>
+                <h3 className="text-xl font-bold">veyra</h3>
               </div>
               <p className="text-sm text-white/70 max-w-xs">
                 Making healthcare more affordable through bill analysis and negotiation.
@@ -196,7 +196,7 @@ export default function TermsAndConditions() {
           </div>
           
           <div className="border-t border-white/20 mt-8 pt-8 text-center md:text-left text-sm text-white/50">
-            <p>© {new Date().getFullYear()} MediChecker. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} veyra. All rights reserved.</p>
           </div>
         </div>
       </footer>

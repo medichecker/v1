@@ -24,13 +24,13 @@ export default function AboutUs() {
       >
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link href="/" className="text-black-600/80 hover:text-black-600">
             Home
           </Link>
-          <a href="mailto:usemedichecker@gmail.com" className="text-black-600/80 hover:text-black-600">
+          <a href="mailto:useveyra@gmail.com" className="text-black-600/80 hover:text-black-600">
             Contact
           </a>
         </nav>
@@ -63,7 +63,7 @@ export default function AboutUs() {
                 <div>
                   <h2 className="text-2xl font-bold text-black-600 mb-4">Our Purpose</h2>
                   <p className="text-lg text-black-600/80 leading-relaxed">
-                    Our purpose at Medichecker is to help patients navigate the convoluted and broken medical 
+                    Our purpose at veyra is to help patients navigate the convoluted and broken medical 
                     billing system. Up to 80% of medical bills contain errors - a seriously alarming amount.
                   </p>
                 </div>
@@ -87,7 +87,7 @@ export default function AboutUs() {
                 <div>
                   <h2 className="text-2xl font-bold text-black-600 mb-4">Our Solution</h2>
                   <p className="text-lg text-black-600/80 leading-relaxed">
-                    At Medichecker, we aim to simplify the entire process. With instant bill analysis, automated 
+                    At veyra, we aim to simplify the entire process. With instant bill analysis, automated 
                     disputing, and ensuring resolutions, we hope to tackle this issue one bill at a time. We'll 
                     advocate for everyone, insured or uninsured.
                   </p>
@@ -150,7 +150,7 @@ export default function AboutUs() {
           <div className="text-center max-w-3xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 text-black-600">Ready to Get Started?</h2>
             <p className="text-lg text-black-600/80 mb-8">
-              Join thousands of others who have already discovered the power of MediChecker.
+              Join thousands of others who have already discovered the power of veyra.
             </p>
             <Button asChild size="lg" className="bg-black text-white hover:bg-teal-600 rounded-full px-12">
               <Link href="/get-started">Get Started Today</Link>
@@ -165,7 +165,7 @@ export default function AboutUs() {
             <div className="mb-6 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
                 <ShieldCheck className="h-6 w-6 text-white stroke-current fill-none" />
-                <h3 className="text-xl font-bold">MediChecker</h3>
+                <h3 className="text-xl font-bold">veyra</h3>
               </div>
               <p className="text-sm text-white/70 max-w-xs">
                 Making healthcare more affordable through bill analysis and negotiation.
@@ -203,7 +203,7 @@ export default function AboutUs() {
           </div>
           
           <div className="border-t border-white/20 mt-8 pt-8 text-center md:text-left text-sm text-white/50">
-            <p>© {new Date().getFullYear()} MediChecker. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} veyra. All rights reserved.</p>
           </div>
         </div>
       </footer>

@@ -28,7 +28,7 @@ export default function Home() {
       name: "Sarah T.",
       location: "Chicago",
       image: "/placeholder.svg?height=60&width=60",
-      text: "MediChecker reduced my ER bill from $3,500 to $1,200!",
+      text: "veyra reduced my ER bill from $3,500 to $1,200!",
     },
     {
       name: "Michael R.",
@@ -97,7 +97,7 @@ export default function Home() {
       >
         <div className="flex items-center gap-2">
           <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
         </div>
         <nav className="hidden md:flex gap-6">
           <Link href="#how-it-works" className="text-black-600/80 hover:text-black-600">
@@ -416,7 +416,7 @@ export default function Home() {
                 <div>
                   <div className="flex items-center gap-2 mb-4">
                     <ShieldCheck className="h-5 w-5 md:h-6 md:w-6 text-black-600 stroke-current fill-none" />
-                    <h3 className="text-lg md:text-xl font-bold text-black-600">MediChecker</h3>
+                    <h3 className="text-lg md:text-xl font-bold text-black-600">veyra</h3>
                   </div>
                   <p className="text-sm text-black-700">Helping patients save since 2025.</p>
                 </div>
@@ -469,7 +469,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="border-t border-teal-100 mt-6 md:mt-8 pt-6 md:pt-8 text-center text-black-700 text-sm">
-                <p>&copy; {new Date().getFullYear()} MediChecker. All rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} veyra. All rights reserved.</p>
               </div>
             </div>
           </footer>

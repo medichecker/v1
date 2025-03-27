@@ -70,14 +70,14 @@ export default function Login() {
       <header className="container mx-auto py-6 flex justify-center">
         <Link href="/" className="flex items-center gap-2">
           <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">MediChecker</h1>
+          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
         </Link>
       </header>
 
       <main className="flex items-center justify-center p-4 w-full">
         <Card className="w-full max-w-md shadow-lg border-black-100 rounded-lg">
           <CardHeader className="space-y-1 text-center">
-            <CardTitle className="text-2xl font-bold text-black-600">Log in to MediChecker</CardTitle>
+            <CardTitle className="text-2xl font-bold text-black-600">Log in to veyra</CardTitle>
             <CardDescription className="text-black-500">
               Enter your email and password to access your account
             </CardDescription>
