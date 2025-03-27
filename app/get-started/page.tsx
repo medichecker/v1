@@ -591,7 +591,7 @@ function SaveMoneyStep() {
             <h3 className="font-bold text-xl mb-2">Ready to get started?</h3>
             <p className="mb-4">Create an account to see your potential savings.</p>
             <Button asChild variant="secondary" size="lg" className="w-full">
-              <Link href="/google-signup">Sign Up Now</Link>
+              <Link href="/user-details">Sign Up Now</Link>
             </Button>
           </div>
         </div>
