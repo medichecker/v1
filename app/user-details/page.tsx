@@ -89,8 +89,8 @@ export default function UserDetailsPage() {
       if (savedVisitData) {
         const { error: visitError } = await supabase
           .from("medical_visits")
-          .insert({
-            user_id: userId,
+          .upsert({
+            id: visit_id,
             hospital_visit_type: visitType,
             service_date: dateOfService || null,
             bill_amount: billAmount ? parseFloat(billAmount) : null,
