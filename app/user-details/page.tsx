@@ -90,8 +90,7 @@ export default function UserDetailsPage() {
       if (savedVisitData) {
         const { error: visitError } = await supabase
           .from("medical_visits")
-          .upsert({
-            id: visit_id,
+          .update({
             hospital_visit_type: visitType,
             service_date: dateOfService || null,
             bill_amount: billAmount ? parseFloat(billAmount) : null,
@@ -99,7 +98,7 @@ export default function UserDetailsPage() {
             healthcare_provider: savedVisitData.hospital || "",
             city: savedVisitData.city || "",
             state: savedVisitData.state || ""
-          });
+          }).eq('id', visit_id);
 
         if (visitError) throw visitError;
 
