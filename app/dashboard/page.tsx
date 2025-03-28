@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { FileText, ExternalLink, X, ShieldCheck } from "lucide-react"
 import { Sidebar } from "@/components/sidebar"
