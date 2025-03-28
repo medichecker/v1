@@ -10,7 +10,14 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ShieldCheck, Upload, Search, DollarSign, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { states } from "@/lib/states"
+import { supabase } from './supabaseClient';
 
+const getCurrentUser = async () => {
+  const { data: { user }, error } = await supabase.auth.getUser();
+  if (user) {
+    console.log(user.id); // This is the user's UID
+  }
+};
 export default function GetStarted() {
   const [currentStep, setCurrentStep] = useState(1)
 
@@ -307,8 +314,9 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
     
     // Generate a temporary UID (you might want to replace this with a more robust method)
     const uid = localStorage.getItem('user_uid') || `temp_${Date.now()}`
-    formDataToSend.append('uid', uid)
-
+    
+    const { data: { user }, error } = await supabase.auth.getUser();
+    formDataToSend.append('uid', user.id)
     try {
       setIsLoading(true)
       const response = await fetch('https://medichecker.pythonanywhere.com/billanalysis', {
