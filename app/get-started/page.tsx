@@ -332,7 +332,7 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
       
       // Save the response or analysis result to localStorage if needed
       localStorage.setItem('bill_analysis_result', JSON.stringify(responseData))
-
+      localStorage.setItem('visit_id', responseData['visit'])
       // Proceed to next step
       onNext()
     } catch (error) {
