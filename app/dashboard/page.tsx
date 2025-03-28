@@ -6,8 +6,8 @@ import { FileText, ExternalLink, X, ShieldCheck } from "lucide-react"
 import { Sidebar } from "@/components/sidebar"
 import { supabase } from "@/src/supabaseClient.ts"
 export default function Dashboard() {
-  const [showBillDetails, setShowBillDetails] = useState(false)
-  const [showLegalDetails, setShowLegalDetails] = useState(false)
+  //const [showBillDetails, setShowBillDetails] = useState(false)
+  //const [showLegalDetails, setShowLegalDetails] = useState(false)
   const [analysisResults, setAnalysisResults] = useState([]);
   const [showBillDetails, setShowBillDetails] = useState(false);
   const [showLegalDetails, setShowLegalDetails] = useState(false);
