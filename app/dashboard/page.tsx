@@ -102,7 +102,7 @@ export default function Dashboard() {
     },
   ]
   */
-  const totalSavings = analysisResults.reduce((sum, item) => sum + item.savings, 0)
+  const totalSavings = Math.round(analysisResults.reduce((sum, item) => sum + item.savings, 0)*100)/100
   const savedPercentage = 45 // Mock progress percentage
   const daysRemaining = 14 // Estimated days until case resolution
   const currentStage = "Negotiating charges with hospital billing department" // Current stage of process
