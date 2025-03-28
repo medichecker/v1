@@ -93,9 +93,9 @@ export default function UserDetailsPage() {
             service_date: dateOfService || null,
             bill_amount: billAmount ? parseFloat(billAmount) : null,
             bill_concerns: billConcerns,
-            healthcare_provider: savedVisitData.hospital || "",
-            city: savedVisitData.city || "",
-            state: savedVisitData.state || ""
+            healthcare_provider: localStorage.getItem('hospital') || "",
+            city: localStorage.getItem('city') || "",
+            state: localStorage.getItem('state') || ""
           }).eq('id', visit_id);
 
       // 2. Insert medical visit data
