@@ -86,9 +86,7 @@ export default function UserDetailsPage() {
       if (userDetailsError) throw userDetailsError;
       const visit_id = localStorage.getItem('visit_id');
       console.log(visit_id);
-      // 2. Insert medical visit data
-      if (savedVisitData) {
-        const { error: visitError } = await supabase
+      const { error: visitError } = await supabase
           .from("medical_visits")
           .update({
             hospital_visit_type: visitType,
@@ -100,6 +98,9 @@ export default function UserDetailsPage() {
             state: savedVisitData.state || ""
           }).eq('id', visit_id);
 
+      // 2. Insert medical visit data
+      if (savedVisitData) {
+        
         if (visitError) throw visitError;
 
         // 3. Insert insurance details
