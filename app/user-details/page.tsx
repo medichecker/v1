@@ -93,7 +93,7 @@ export default function UserDetailsPage() {
             service_date: dateOfService || null,
             bill_amount: billAmount ? parseFloat(billAmount) : null,
             bill_concerns: billConcerns,
-            healthcare_provider: localStorage.getItem('hospital') || "",
+            healthcare_provider: localStorage.getItem('hospital_name') || "",
             city: localStorage.getItem('city') || "",
             state: localStorage.getItem('state') || ""
           }).eq('id', visit_id);
