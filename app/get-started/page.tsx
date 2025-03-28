@@ -311,7 +311,10 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
     formDataToSend.append('city', formData.city)
     formDataToSend.append('state', formData.state)
     formDataToSend.append('hospital_name', formData.hospital)
-    
+    localStorage.setItem('insurance', formData.insurance)
+    localStorage.setItem('city', formData.city)
+    localStorage.setItem('state', formData.state)
+    localStorage.setItem('hospital_name', formData.hospital)
     // Generate a temporary UID (you might want to replace this with a more robust method)
     const uid = localStorage.getItem('user_uid') || `temp_${Date.now()}`
     
