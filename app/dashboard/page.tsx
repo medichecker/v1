@@ -57,9 +57,9 @@ export default function Dashboard() {
       // Format the data into analysisResults
       const formattedData = billDetails.map((bill) => ({
         service: bill.procedure_name, // Assuming service_name exists in medical_visits table
-        charged: bill.cost, // Assuming charged_amount exists in bill_details table
-        correct: bill.actual_cost, // Assuming correct_amount exists in bill_details table
-        savings: bill.cost - bill.actual_cost,
+        charged: Math.round(bill.cost * 100) / 100, // Assuming charged_amount exists in bill_details table
+        correct: Math.round(bill.actual_cost * 100) / 100, // Assuming correct_amount exists in bill_details table
+        savings: Math.round((bill.cost - bill.actual_cost) * 100) / 100,
       }));
 
       setAnalysisResults(formattedData);
