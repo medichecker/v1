@@ -8,7 +8,66 @@ import { supabase } from "@/src/supabaseClient.ts"
 export default function Dashboard() {
   const [showBillDetails, setShowBillDetails] = useState(false)
   const [showLegalDetails, setShowLegalDetails] = useState(false)
+  const [analysisResults, setAnalysisResults] = useState([]);
+  const [showBillDetails, setShowBillDetails] = useState(false);
+  const [showLegalDetails, setShowLegalDetails] = useState(false);
 
+  useEffect(() => {
+    async function fetchMedicalVisitsAndBillDetails() {
+      // Retrieve the current user's ID
+      const { data: { user } } = await supabase.auth.getUser();
+      const userId = user.id;
+
+      // Query the latest medical visit for the current user
+      const { data: latestVisit, error: visitError } = await supabase
+        .from('medical_visits')
+        .select('*')
+        .eq('user_id', userId)
+        .order('service_date', { ascending: false })
+        .limit(1);
+
+      if (visitError) {
+        console.error('Error fetching latest visit:', visitError);
+        return;
+      }
+
+      if (!latestVisit || latestVisit.length === 0) {
+        console.log('No visits found for the user.');
+        return;
+      }
+
+      const latestVisitId = latestVisit[0].id;
+
+      // Fetch the corresponding bill details
+      const { data: billDetails, error: billError } = await supabase
+        .from('bill_details')
+        .select('*')
+        .eq('visit_id', latestVisitId);
+
+      if (billError) {
+        console.error('Error fetching bill details:', billError);
+        return;
+      }
+
+      if (!billDetails || billDetails.length === 0) {
+        console.log('No bill details found for the latest visit.');
+        return;
+      }
+
+      // Format the data into analysisResults
+      const formattedData = billDetails.map((bill) => ({
+        service: latestVisit[0].procedure_name, // Assuming service_name exists in medical_visits table
+        charged: bill.cost, // Assuming charged_amount exists in bill_details table
+        correct: bill.actual_cost, // Assuming correct_amount exists in bill_details table
+        savings: bill.cost - bill.actual_cost,
+      }));
+
+      setAnalysisResults(formattedData);
+    }
+
+    fetchMedicalVisitsAndBillDetails();
+  }, []);
+  /*
   const analysisResults = [
     {
       service: "X-Ray",
@@ -42,7 +101,7 @@ export default function Dashboard() {
       savings: 150,
     },
   ]
-
+  */
   const totalSavings = analysisResults.reduce((sum, item) => sum + item.savings, 0)
   const savedPercentage = 45 // Mock progress percentage
   const daysRemaining = 14 // Estimated days until case resolution
