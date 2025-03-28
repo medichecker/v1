@@ -10,7 +10,7 @@ import { Card, CardContent } from "@/components/ui/card"
 import { ShieldCheck, Upload, Search, DollarSign, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { states } from "@/lib/states"
-import { supabase } from './supabaseClient';
+import { supabase } from "@/src/supabaseClient";
 
 const getCurrentUser = async () => {
   const { data: { user }, error } = await supabase.auth.getUser();
