@@ -84,7 +84,8 @@ export default function UserDetailsPage() {
           });
 
       if (userDetailsError) throw userDetailsError;
-
+      const visit_id = localStorage.getItem('visit_id');
+      //console.log(storedText);
       // 2. Insert medical visit data
       if (savedVisitData) {
         const { error: visitError } = await supabase
