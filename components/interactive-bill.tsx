@@ -1,44 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { motion, useSpring, useAnimationControls } from "framer-motion"
+import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function InteractiveBill() {
   const [flipped, setFlipped] = useState(false)
-  const controls = useAnimationControls()
   const [isVisible, setIsVisible] = useState(false)
-
-  // Spring physics for smoother movement
-  const springConfig = { damping: 20, stiffness: 300 }
-  const scaleSpring = useSpring(1, springConfig)
-  const xSpring = useSpring(0, springConfig)
-  const ySpring = useSpring(0, springConfig)
-  const rotateXSpring = useSpring(0, springConfig)
-  const rotateYSpring = useSpring(0, springConfig)
 
   useEffect(() => {
     setIsVisible(true)
   }, [])
 
-  const handleDragStart = () => {
-    scaleSpring.set(1.05)
-  }
-  
-
-  const handleDragEnd = () => {
-    scaleSpring.set(1)
-    xSpring.set(0)
-    ySpring.set(0)
-    rotateXSpring.set(0)
-    rotateYSpring.set(0)
-  }
-
   const handleFlip = () => {
     setFlipped(!flipped)
-    controls.start({
-      rotateY: flipped ? 0 : 180,
-      transition: { duration: 0.6, ease: "easeInOut" },
-    })
   }
 
   return (
@@ -51,42 +26,23 @@ export default function InteractiveBill() {
         transition={{ delay: 0.3, duration: 0.6 }}
       >
         <motion.div
-          className="relative w-full max-w-[280px] md:max-w-[330px] h-[340px] md:h-[390px] cursor-grab active:cursor-grabbing preserve-3d"
-          animate={controls}
-          style={{
-            x: xSpring,
-            y: ySpring,
-            rotateX: rotateXSpring,
-            rotateY: rotateYSpring,
-            scale: scaleSpring,
-          }}
-          drag
-          dragConstraints={{ top: -20, right: 20, bottom: 20, left: -20 }}
-          dragElastic={0.05}
-          onDragStart={handleDragStart}
-          onDragEnd={handleDragEnd}
-          whileTap={{ cursor: "grabbing" }}
-          onDrag={(_, info) => {
-            xSpring.set(info.offset.x * 0.5) // Reduced movement
-            ySpring.set(info.offset.y * 0.5) // Reduced movement
-            rotateXSpring.set(info.offset.y * -0.1) // Reduced rotation
-            rotateYSpring.set(info.offset.x * 0.1) // Reduced rotation
-          }}
-          onHoverStart={() => {
-            scaleSpring.set(1.05)
-          }}
-          onHoverEnd={() => {
-            scaleSpring.set(1)
+          className="relative w-full max-w-[280px] md:max-w-[330px] h-[340px] md:h-[390px] cursor-pointer preserve-3d"
+          animate={{ 
+            rotateY: flipped ? 180 : 0,
+            transition: { duration: 0.6, ease: "easeInOut" }
           }}
           onClick={handleFlip}
+          whileHover={{ scale: 1.05 }}
+          style={{ transformStyle: "preserve-3d" }}
         >
           {/* Front side - Corrected bill (now showing first) */}
           <motion.div
-            className="absolute w-full h-full rounded-2xl p-3 md:p-5 shadow-xl bg-white border border-teal-600 flex flex-col backface-hidden"
+            className="absolute w-full h-full rounded-2xl p-3 md:p-5 shadow-xl bg-white border border-teal-600 flex flex-col"
             style={{
               boxShadow:
                 "0 20px 25px -5px rgba(0, 238, 255, 0.44), 0 10px 10px -5px rgba(22, 151, 190, 0.3), 0 0 0 1px rgba(37, 170, 154, 0.14)",
-              rotateY: 0,
+              backfaceVisibility: "hidden",
+              transform: "rotateY(0deg)",
             }}
           >
             <div className="flex justify-between items-start mb-2 md:mb-3">
@@ -145,11 +101,12 @@ export default function InteractiveBill() {
 
           {/* Back side - Overcharged bill (shows when flipped) */}
           <motion.div
-            className="absolute w-full h-full rounded-2xl p-3 md:p-5 shadow-2xl bg-white border border-black shadow-md flex flex-col backface-hidden"
+            className="absolute w-full h-full rounded-2xl p-3 md:p-5 shadow-2xl bg-white border border-black shadow-md flex flex-col"
             style={{
               boxShadow:
                 "0 20px 25px -5px rgba(255, 0, 0, 0.33), 0 10px 10px -5px rgba(153, 30, 30, 0.04), 0 0 0 1px rgba(229, 37, 37, 0.78)",
-              rotateY: 180,
+              backfaceVisibility: "hidden",
+              transform: "rotateY(180deg)",
             }}
           >
             <div className="flex justify-between items-start mb-2 md:mb-3">
@@ -216,9 +173,33 @@ export default function InteractiveBill() {
             flipped ? "text-black-900" : "text-black-500"
           } mb-2`}
         >
-          {flipped ? "Without veyra" : "With veyra"}
+          {flipped ? (
+            <div className="flex justify-center items-center">
+              <span className="mr-2">Without</span>
+              <Image
+                src="/Veyra_Logo_Primary_H_Aura500.png"
+                alt="Veyra"
+                width={80}
+                height={24}
+                className="h-6 w-auto"
+                priority
+              />
+            </div>
+          ) : (
+            <div className="flex justify-center items-center">
+              <span className="mr-2">With</span>
+              <Image
+                src="/Veyra_Logo_Primary_H_Aura500.png"
+                alt="Veyra"
+                width={80}
+                height={24}
+                className="h-6 w-auto"
+                priority
+              />
+            </div>
+          )}
         </h2>
-        <p className="text-xs text-black-400">Throw the bill away, or click to flip</p>
+        <p className="text-xs text-black-400">Click to flip the bill</p>
       </motion.div>
     </div>
   )

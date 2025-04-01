@@ -44,8 +44,8 @@ export default function Home() {
         <div className="blob w-[400px] h-[400px] top-[50%] left-[5%] opacity-20 animation-delay-2000"></div>
         <div className="blob w-[350px] h-[350px] bottom-[10%] right-[15%] opacity-25 animation-delay-4000"></div>
         
-        {/* Hero Section */}
-        <section className="container mx-auto py-8 md:py-12 px-4">
+        {/* Hero Section - REDUCED PADDING */}
+        <section className="container mx-auto py-4 md:py-8 px-4">
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             {/* Left side - Text and buttons */}
             <motion.div
@@ -64,7 +64,7 @@ export default function Home() {
                 animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <Button asChild size="lg" className="bg-teal-600 text-white hover:bg-black rounded-full px-8">
+                <Button asChild size="lg" className="bg-teal-600 text-white hover:bg-teal-800 rounded-full px-8">
                   <Link href="/google-signup">Get Started</Link>
                 </Button>
                 <Button
@@ -92,11 +92,17 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Add Traveling Lines Divider */}
-        <SectionDivider className="my-8" />
+        {/* Improved Gradient Transition - SHORTER HEIGHT */}
+        <div className="w-full h-16 md:h-24 bg-gradient-to-b from-transparent to-white"></div>
+
+        {/* SectionDivider with better positioning and opacity animation */}
+        <div className="relative">
+          <div className="absolute inset-0 bg-gradient-to-b from-white to-transparent"></div>
+          <SectionDivider className="relative z-10" />
+        </div>
 
         {/* How It Works Section */}
-        <section id="how-it-works" className="relative bg-white py-12 md:py-20 rounded-t-[3rem]">
+        <section id="how-it-works" className="relative bg-white pt-8 md:pt-12 pb-12 md:pb-20">
           <div className="container mx-auto px-4">
             <ScrollAnimation animation="fadeInUp" duration={0.7}>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black-600">
@@ -122,7 +128,7 @@ export default function Home() {
                     </div>
                   </AnimatedItem>
                   
-                  <AnimatedItem>
+                  <AnimatedItem>  
                     <div className="border border-black rounded-2xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition-shadow">
                       <div className="bg-white w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 border border-black">
                         <Search className="h-8 w-8 text-black" />
@@ -215,9 +221,16 @@ export default function Home() {
             {/* Right side - With Veyra */}
             <div className="flex-1 bg-teal-50 rounded-3xl p-8">
               <div className="space-y-6">
-                <div className="flex items-center gap-2">
-                  <CheckCircle className="h-6 w-6 text-teal-600" />
-                  <h3 className="text-2xl font-bold text-teal-600">With Veyra</h3>
+                <div className="flex items-center">
+                  <span className="text-2xl font-bold text-black mr-2">With</span>
+                  <Image
+                    src="/Veyra_Logo_Primary_H_Aura500.png"
+                    alt="Veyra"
+                    width={100}
+                    height={30}
+                    className="h-8 w-auto brightness-0 sepia hue-rotate-140"
+                    priority
+                  />
                 </div>
 
                 <div className="space-y-4">
@@ -268,7 +281,7 @@ export default function Home() {
           <div className="container mx-auto px-4">
             <ScrollAnimation animation="fadeIn" duration={0.7}>
               <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-black">
-                Secure. Compliant. Trusted.
+                Secure and Compliant
               </h2>
               <p className="text-center text-black mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
                 Your medical information is sensitive. We take security seriously.
@@ -332,13 +345,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      Is veyra HIPAA compliant?
+                      Is Veyra HIPAA compliant?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      veyra is committed to protecting your medical information and follows industry best practices 
+                      Veyra is committed to protecting your medical information and follows industry best practices 
                       to ensure security. For our medical bill analysis service, we do not record any PHI(Personal Health 
                       Information) and do not store any billing info. We continuously ensure that we are meeting the 
                       highest data protection standards.
@@ -349,13 +362,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      How does veyra work?
+                      How does Veyra work?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      veyra helps users analyze medical bills for errors and overcharges. Simply upload your 
+                      Veyra helps users analyze medical bills for errors and overcharges. Simply upload your 
                       medical bill, and our system will scan it for potential discrepancies. If issues are detected, 
                       you can connect with a professional medical bill advocate who can help negotiate and dispute 
                       charges on your behalf.
@@ -372,7 +385,7 @@ export default function Home() {
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      To use veyra, you need to provide a copy of your itemized medical bill. If you choose 
+                      To use Veyra, you need to provide a copy of your itemized medical bill. If you choose 
                       to work with an advocate, additional details like insurance information and a HIPAA release 
                       form may be required for negotiation purposes.
                     </p>
@@ -382,13 +395,13 @@ export default function Home() {
                 <details className="group bg-white rounded-2xl cursor-pointer">
                   <summary className="flex items-center justify-between p-6 marker-hidden hover:text-teal-500 transition-colors">
                     <h3 className="text-xl font-semibold text-black-600 group-hover:text-teal-500 transition-colors">
-                      Can I use veyra even if I have insurance?
+                      Can I use Veyra even if I have insurance?
                     </h3>
                     <ChevronDown className="w-5 h-5 text-black-600 transition-all duration-500 chevron group-hover:text-teal-500 group-open:rotate-180" />
                   </summary>
                   <div className="px-6 pb-6">
                     <p className="text-black-600/80 leading-relaxed">
-                      Yes, veyra works for both insured and uninsured individuals. If your insurance hasn't 
+                      Yes, Veyra works for both insured and uninsured individuals. If your insurance hasn't 
                       paid yet, we can help review your bill for errors before payment. If your claim has been 
                       processed, you may still be able to appeal charges or negotiate remaining balances. For 
                       uninsured users, we assist in identifying billing errors and exploring discounts or 
@@ -407,7 +420,7 @@ export default function Home() {
             <h2 className="text-2xl md:text-3xl font-bold mb-4 text-black-600">
               Start Saving on Your Medical Bills Today
             </h2>
-            <Button asChild size="lg" className="bg-black text-white hover:bg-teal-900 rounded-full px-8">
+            <Button asChild size="lg" className="bg-teal-600 text-white hover:bg-teal-800 rounded-full px-8">
               <Link href="/get-started">Get Started Now</Link>
             </Button>
           </div>
