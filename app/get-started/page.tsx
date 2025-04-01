@@ -7,10 +7,11 @@ import { useState } from "react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
-import { ShieldCheck, Upload, Search, DollarSign, ArrowRight } from "lucide-react"
+import { Upload, Search, DollarSign, ArrowRight } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { states } from "@/lib/states"
 import { supabase } from "@/src/supabaseClient";
+import Image from "next/image"
 
 const getCurrentUser = async () => {
   const { data: { user }, error } = await supabase.auth.getUser();
@@ -48,9 +49,15 @@ export default function GetStarted() {
   return (
     <div className="min-h-screen bg-white">
       <header className="container mx-auto py-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-2">
-          <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Veyra_Logo_Primary_H_Aura500.png"
+            alt="veyra"
+            width={215}
+            height={48}
+            priority
+            className="h-8 md:h-12 w-auto"
+          />
         </Link>
       </header>
 
@@ -319,6 +326,9 @@ function UploadBillStep({ onNext }: { onNext: () => void }) {
     const uid = localStorage.getItem('user_uid') || `temp_${Date.now()}`
     
     const { data: { user }, error } = await supabase.auth.getUser();
+    if (!user) {
+      throw new Error('User not authenticated');
+    }
     formDataToSend.append('uid', user.id)
     try {
       setIsLoading(true)

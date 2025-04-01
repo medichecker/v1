@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { ScrollAnimation } from "@/components/scroll-animation"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import Image from "next/image"
 
 export default function AboutUs() {
   const [isLoaded, setIsLoaded] = useState(false)
@@ -22,9 +23,15 @@ export default function AboutUs() {
         animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : -20 }}
         transition={{ duration: 0.5 }}
       >
-        <Link href="/" className="flex items-center gap-2">
-          <ShieldCheck className="h-6 w-6 md:h-8 md:w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-xl md:text-2xl font-bold text-black-600">veyra</h1>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Veyra_Logo_Primary_H_Aura500.png"
+            alt="veyra"
+            width={215}
+            height={48}
+            priority
+            className="h-8 md:h-12 w-auto"
+          />
         </Link>
         <nav className="hidden md:flex gap-6">
           <Link href="/" className="text-black-600/80 hover:text-black-600">
@@ -164,8 +171,13 @@ export default function AboutUs() {
           <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
             <div className="mb-6 md:mb-0">
               <div className="flex items-center gap-2 mb-4">
-                <ShieldCheck className="h-6 w-6 text-white stroke-current fill-none" />
-                <h3 className="text-xl font-bold">veyra</h3>
+                <Image
+                  src="/Veyra_Logo_Primary_H_Aura500.png"
+                  alt="veyra"
+                  width={215}
+                  height={48}
+                  className="h-8 w-auto brightness-0 invert"
+                />
               </div>
               <p className="text-sm text-white/70 max-w-xs">
                 Making healthcare more affordable through bill analysis and negotiation.

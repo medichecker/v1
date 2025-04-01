@@ -5,8 +5,8 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { ShieldCheck } from "lucide-react";
 import { supabase } from "@/src/supabaseClient";
+import Image from "next/image";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
@@ -83,9 +83,15 @@ export default function SignupPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col items-center justify-center">
       <header className="container mx-auto py-6 flex justify-center">
-        <Link href="/" className="flex items-center gap-2">
-          <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Veyra_Logo_Primary_H_Aura500.png"
+            alt="veyra"
+            width={215}
+            height={48}
+            priority
+            className="h-8 md:h-12 w-auto"
+          />
         </Link>
       </header>
 

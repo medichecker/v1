@@ -1,19 +1,25 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { ShieldCheck } from "lucide-react"
 
 export default function Signup() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       <header className="container mx-auto py-6">
-        <Link href="/" className="flex items-center gap-2">
-          <ShieldCheck className="h-8 w-8 text-black-600 stroke-current fill-none" />
-          <h1 className="text-2xl font-bold text-black-600">veyra</h1>
+        <Link href="/" className="flex items-center">
+          <Image
+            src="/Veyra_Logo_Primary_H_Aura500.png"
+            alt="veyra"
+            width={215}
+            height={48}
+            priority
+            className="h-8 md:h-12 w-auto"
+          />
         </Link>
       </header>
 
