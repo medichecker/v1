@@ -4,66 +4,18 @@ import { useEffect, useState, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ShieldCheck, Shield, Lock, FileCheck, ChevronRight, ChevronLeft, Search, Upload, DollarSign, ChevronDown } from "lucide-react"
+import { ShieldCheck, Shield, Lock, FileCheck, ChevronRight, ChevronLeft, Search, Upload, DollarSign, ChevronDown, AlertTriangle, Mail, AlertOctagon, Copy, AlertCircle, ArrowRight, CheckCircle, Bug, Zap } from "lucide-react"
 import InteractiveBill from "@/components/interactive-bill"
 import { motion } from "framer-motion"
 import { ScrollAnimation, ScrollAnimationGroup } from "@/components/scroll-animation"
 import { SectionDivider } from "@/components/traveling-lines"
 
-interface Testimonial {
-  name: string;
-  location: string;
-  image: string;
-  text: string;
-}
-
 export default function Home() {
   const [isLoaded, setIsLoaded] = useState(false)
-  const testimonialRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setIsLoaded(true)
   }, [])
-
-  const scrollTestimonials = (direction: "left" | "right") => {
-    if (testimonialRef.current) {
-      const scrollAmount = direction === "left" ? -300 : 300
-      testimonialRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" })
-    }
-  }
-
-  const testimonials: Testimonial[] = [
-    {
-      name: "Sarah T.",
-      location: "Chicago",
-      image: "/placeholder.svg?height=60&width=60",
-      text: "veyra reduced my ER bill from $3,500 to $1,200!",
-    },
-    {
-      name: "Michael R.",
-      location: "New York",
-      image: "/placeholder.svg?height=60&width=60",
-      text: "After surgery, they saved me over $5,000 on confusing charges.",
-    },
-    {
-      name: "Jennifer L.",
-      location: "Los Angeles",
-      image: "/placeholder.svg?height=60&width=60",
-      text: "Easy process. Uploaded my bill, saved $1,200 within days.",
-    },
-    {
-      name: "David K.",
-      location: "Boston",
-      image: "/placeholder.svg?height=60&width=60",
-      text: "Reduced my medical debt by 40%. Finally have peace of mind.",
-    },
-    {
-      name: "Emily W.",
-      location: "Seattle",
-      image: "/placeholder.svg?height=60&width=60",
-      text: "With chronic illness, they've saved me thousands this year.",
-    },
-  ]
 
   return (
     <div className="min-h-screen">
@@ -112,7 +64,7 @@ export default function Home() {
                 animate={{ opacity: isLoaded ? 1 : 0, y: isLoaded ? 0 : 20 }}
                 transition={{ delay: 0.6, duration: 0.5 }}
               >
-                <Button asChild size="lg" className="bg-black text-white hover:bg-teal-600 rounded-full px-8">
+                <Button asChild size="lg" className="bg-teal-600 text-white hover:bg-black rounded-full px-8">
                   <Link href="/google-signup">Get Started</Link>
                 </Button>
                 <Button
@@ -197,7 +149,120 @@ export default function Home() {
 
         {/* Add Traveling Lines Divider */}
         <SectionDivider className="my-8" />
+  {/* Medical Billing Errors Comparison Section */}
+        <section className="container mx-auto py-16 md:py-24 px-4">
+          <div className="flex flex-col md:flex-row items-stretch gap-8 max-w-6xl mx-auto">
+            {/* Left side - Medical Billing Errors */}
+            <div className="flex-1 bg-slate-50 rounded-3xl p-8 relative">
+              <div className="space-y-6">
+                <div className="flex items-center gap-2">
+                  <AlertTriangle className="h-6 w-6 text-red-500" />
+                  <h3 className="text-2xl font-bold text-black-600">Medical Billing Errors</h3>
+                </div>
+                
+                <div className="space-y-6">
+                  <div className="bg-white rounded-xl p-4 shadow-sm transform rotate-2 hover:rotate-0 transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-3">
+                      <Mail className="h-5 w-5 text-orange-500 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-orange-600">Billing Error</h4>
+                        <p className="text-black-600/80">Patient overcharged $3,450 for routine appendectomy</p>
+                      </div>
+                    </div>
+                  </div>
 
+                  <div className="bg-white rounded-xl p-4 shadow-sm transform -rotate-3 hover:rotate-0 transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-3">
+                      <AlertTriangle className="h-5 w-5 text-red-500 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-red-600">Billing Mistake</h4>
+                        <p className="text-black-600/80">$2,780 charged for lab tests never performed</p>
+                      </div>
+                    </div>
+                  </div>
+
+               
+                  <div className="bg-white rounded-xl p-4 shadow-sm transform rotate-3 hover:rotate-0 transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-3">
+                      <AlertOctagon className="h-5 w-5 text-orange-500 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-orange-600">Incorrect Coding</h4>
+                        <p className="text-black-600/80">Wrong procedure code resulted in $4,200 overcharge</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-4 shadow-sm transform -rotate-3 hover:rotate-0 transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-3">
+                      <AlertCircle className="h-5 w-5 text-red-500 mt-1" />
+                      <div>
+                        <h4 className="font-semibold text-red-600">Out-of-Network Error</h4>
+                        <p className="text-black-600/80">In-network doctor billed as out-of-network, $5,300 extra cost</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Arrow between panels */}
+            <div className="flex items-center justify-center md:w-24">
+              <div className="bg-teal-500 rounded-full p-4 rotate-90 md:rotate-0">
+                <ArrowRight className="h-6 w-6 text-white" />
+              </div>
+            </div>
+
+            {/* Right side - With Veyra */}
+            <div className="flex-1 bg-teal-50 rounded-3xl p-8">
+              <div className="space-y-6">
+                <div className="flex items-center gap-2">
+                  <CheckCircle className="h-6 w-6 text-teal-600" />
+                  <h3 className="text-2xl font-bold text-teal-600">With Veyra</h3>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-teal-100 rounded-lg p-2">
+                        <Bug className="h-6 w-6 text-teal-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-black-600">Fix Errors</h4>
+                        <p className="text-black-600/80">Automated error detection prevents billing mistakes before submission</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-teal-100 rounded-lg p-2">
+                        <Zap className="h-6 w-6 text-teal-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-black-600">Resolve Issues</h4>
+                        <p className="text-black-600/80">AI-powered system identifies and resolves claim issues in real-time</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-xl p-6 shadow-sm hover:transition-transform duration-300 hover:shadow-md">
+                    <div className="flex items-start gap-4">
+                      <div className="bg-teal-100 rounded-lg p-2">
+                        <Shield className="h-6 w-6 text-teal-600" />
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-semibold text-black-600">Pay Fair Prices</h4>
+                        <p className="text-black-600/80">Ensure accurate pricing and prevent overcharges with price transparency</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+      
         {/* Secure. Compliant. Trusted Section */}
         <section className="relative py-12 md:py-20">
           <div className="container mx-auto px-4">
@@ -255,86 +320,9 @@ export default function Home() {
         {/* Add Traveling Lines Divider */}
         <SectionDivider className="my-8" />
 
-        {/* Trusted by Thousands Section */}
-        <section id="testimonials" className="relative bg-white py-12 md:py-20">
-          <div className="container mx-auto px-4">
-            <ScrollAnimation animation="fadeIn" duration={0.7}>
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-black-600">Trusted by Thousands</h2>
-              <p className="text-center text-black-700 mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
-                See what our clients say about their experience.
-              </p>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation="fadeInUp" duration={0.7}>
-              <div className="relative">
-                <button
-                  onClick={() => scrollTestimonials("left")}
-                  className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md border border-teal-100 text-black-600 hover:bg-teal-50"
-                >
-                  <ChevronLeft className="h-5 w-5 md:h-6 md:w-6 stroke-current fill-none" />
-                </button>
-
-                <div
-                  ref={testimonialRef}
-                  className="flex overflow-x-auto gap-4 md:gap-6 pb-6 scrollbar-hide snap-x"
-                  style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-                >
-                  {testimonials.map((testimonial, index) => (
-                    <div
-                      key={index}
-                      className="min-w-[250px] md:min-w-[300px] border border-black p-4 md:p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow flex-shrink-0 snap-center"
-                    >
-                      <div className="flex items-center gap-1 md:gap-2 mb-3 md:mb-4">
-                        {[...Array(5)].map((_, i) => (
-                          <svg
-                            key={i}
-                            className="w-4 h-4 md:w-5 md:h-5 text-black-500"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                          </svg>
-                        ))}
-                      </div>
-                      <p className="text-sm text-black-700 mb-4">"{testimonial.text}"</p>
-                      <div className="flex items-center">
-                        <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden mr-3">
-                          <Image
-                            src={testimonial.image || "/placeholder.svg"}
-                            alt={testimonial.name}
-                            width={40}
-                            height={40}
-                            className="object-cover"
-                          />
-                        </div>
-                        <div>
-                          <p className="font-medium text-black-600 text-sm md:text-base">{testimonial.name}</p>
-                          <p className="text-xs md:text-sm text-black-500">{testimonial.location}</p>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                <button
-                  onClick={() => scrollTestimonials("right")}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md border border-teal-100 text-black-600 hover:bg-teal-50"
-                >
-                  <ChevronRight className="h-5 w-5 md:h-6 md:w-6 stroke-current fill-none" />
-                </button>
-                <button
-                  onClick={() => scrollTestimonials("right")}
-                  className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white rounded-full p-2 shadow-md border border-teal-100 text-black-600 hover:bg-teal-50"
-                >
-                  <ChevronRight className="h-5 w-5 md:h-6 md:w-6 stroke-current fill-none" />
-                </button>
-              </div>
-            </ScrollAnimation>
-          </div>
-        </section>
-        {/* <SectionDivider className="my-8" /> */}
-        {/* FAQ Section */}
-        <section className="py-12 md:py-20">
+     
+{/* FAQ Section */}
+<section className="py-12 md:py-20">
           <div className="container mx-auto px-4">
             <ScrollAnimation animation="fadeInUp" duration={0.7}>
               <h2 className="text-3xl md:text-4xl font-bold text-center mb-12 text-black-600">
@@ -412,7 +400,6 @@ export default function Home() {
             </ScrollAnimation>
           </div>
         </section>
-      </main>
 
         {/* Call to Action Section */}
         <section className="py-12 md:py-20">
