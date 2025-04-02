@@ -101,57 +101,94 @@ export default function Home() {
           <SectionDivider className="relative z-10" />
         </div>
 
-        {/* How It Works Section */}
-        <section id="how-it-works" className="relative bg-white pt-8 md:pt-12 pb-12 md:pb-20">
-          <div className="container mx-auto px-4">
-            <ScrollAnimation animation="fadeInUp" duration={0.7}>
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-8 md:mb-12 text-black-600">
-                How It Works
-              </h2>
-            </ScrollAnimation>
-            
-            <ScrollAnimationGroup 
-              animation="fadeInUp" 
-              staggerDelay={0.15} 
-              baseDelay={0.2}
-              duration={0.6}
-            >
-              {(AnimatedItem) => (
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-                  <AnimatedItem>
-                    <div className="border border-black rounded-2xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-white w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 border border-black">
-                        <Upload className="h-8 w-8 text-black" />
-                      </div>
-                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-black-600">Upload Your Bill</h3>
-                      <p className="text-sm text-black-700">Upload any medical bill from any U.S. hospital.</p>
-                    </div>
-                  </AnimatedItem>
-                  
-                  <AnimatedItem>  
-                    <div className="border border-black rounded-2xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-white w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 border border-black">
-                        <Search className="h-8 w-8 text-black" />
-                      </div>
-                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-black-600">We Analyze</h3>
-                      <p className="text-sm text-black-700">Our system finds errors and compares to fair pricing.</p>
-                    </div>
-                  </AnimatedItem>
-                  
-                  <AnimatedItem>
-                    <div className="border border-black rounded-2xl p-4 md:p-6 text-center shadow-sm hover:shadow-md transition-shadow">
-                      <div className="bg-white w-16 h-16 mx-auto rounded-full flex items-center justify-center mb-4 border border-black">
-                        <DollarSign className="h-8 w-8 text-black" />
-                      </div>
-                      <h3 className="text-lg md:text-xl font-semibold mb-2 text-black-600">Save Money</h3>
-                      <p className="text-sm text-black-700">We negotiate with providers to reduce your bill.</p>
-                    </div>
-                  </AnimatedItem>
-                </div>
-              )}
-            </ScrollAnimationGroup>
-          </div>
-        </section>
+      {/* How It Works Section */}
+<section id="how-it-works" className="relative bg-white pt-16 md:pt-24 pb-16 md:pb-24">
+  {/* Subtle background elements */}
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    <div className="absolute w-full h-full bg-gradient-to-b from-gray-50 to-white opacity-50"></div>
+    <div className="absolute -right-64 top-0 w-96 h-96 rounded-full bg-teal-600 opacity-5 blur-3xl"></div>
+    <div className="absolute -left-64 bottom-0 w-96 h-96 rounded-full bg-teal-600 opacity-5 blur-3xl"></div>
+  </div>
+  
+  <div className="container mx-auto px-4 relative">
+    <ScrollAnimation animation="fadeInUp" duration={0.7}>
+      <h2 className="text-3xl md:text-4xl font-bold text-center mb-3 text-black">
+        How It Works
+      </h2>
+      <p className="text-center text-gray-600 mb-16 max-w-xl mx-auto">
+        Three simple steps to reduce your medical expenses
+      </p>
+    </ScrollAnimation>
+
+    <ScrollAnimationGroup animation="fadeInUp" staggerDelay={0.15} baseDelay={0.2} duration={0.6}>
+      {(AnimatedItem) => (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          {/* Step 1 */}
+          <AnimatedItem>
+            <div className="group relative text-center">
+              {/* Icon */}
+              <div className="w-16 h-16 mb-6 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-teal-600 transition-colors duration-300 mx-auto">
+                <Upload className="h-8 w-8 text-teal-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              
+              {/* Content */}
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-teal-600 transition-colors duration-300">
+                Upload Your Bill
+              </h3>
+              <p className="text-gray-600">
+                Simply upload any medical bill from any U.S. hospital through our secure platform.
+              </p>
+              
+              {/* Connector line (only on desktop) */}
+              <div className="hidden md:block absolute top-8 -right-6 w-12 h-0.5 bg-gray-200"></div>
+            </div>
+          </AnimatedItem>
+
+          {/* Step 2 */}
+          <AnimatedItem>
+            <div className="group relative text-center">
+            {/* Icon */}
+              <div className="w-16 h-16 mb-6 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-teal-600 transition-colors duration-300 mx-auto">
+                <Search className="h-8 w-8 text-teal-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              
+              {/* Content */}
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-teal-600 transition-colors duration-300">
+                We Analyze
+              </h3>
+              <p className="text-gray-600">
+                Our AI-powered system identifies errors and compares charges to fair market pricing.
+              </p>
+              
+              {/* Connector line (only on desktop) */}
+              <div className="hidden md:block absolute top-8 -right-6 w-12 h-0.5 bg-gray-200"></div>
+            </div>
+          </AnimatedItem>
+
+          {/* Step 3 */}
+          <AnimatedItem>
+            <div className="group relative text-center">
+              
+              {/* Icon */}
+              <div className="w-16 h-16 mb-6 bg-gray-50 rounded-full flex items-center justify-center group-hover:bg-teal-600 transition-colors duration-300 mx-auto">
+                <DollarSign className="h-8 w-8 text-teal-600 group-hover:text-white transition-colors duration-300" />
+              </div>
+              
+              {/* Content */}
+              <h3 className="text-xl font-bold mb-3 text-black group-hover:text-teal-600 transition-colors duration-300">
+                Save Money
+              </h3>
+              <p className="text-gray-600">
+                We negotiate with healthcare providers on your behalf to reduce your medical expenses.
+              </p>
+            </div>
+          </AnimatedItem>
+        </div>
+      )}
+    </ScrollAnimationGroup>
+  </div>
+</section>
+
 
         {/* Add Traveling Lines Divider */}
         <SectionDivider className="my-8" />
@@ -277,58 +314,58 @@ export default function Home() {
       </main>
       
         {/* Secure. Compliant. Trusted Section */}
-        <section className="relative py-12 md:py-20">
-          <div className="container mx-auto px-4">
-            <ScrollAnimation animation="fadeIn" duration={0.7}>
-              <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-black">
-                Secure and Compliant
-              </h2>
-              <p className="text-center text-black mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
-                Your medical information is sensitive. We take security seriously.
-              </p>
-            </ScrollAnimation>
+<section className="relative py-12 md:py-20">
+  <div className="container mx-auto px-4">
+    <ScrollAnimation animation="fadeIn" duration={0.7}>
+      <h2 className="text-2xl md:text-3xl font-bold text-center mb-4 text-black">
+        Secure and Compliant
+      </h2>
+      <p className="text-center text-black mb-8 md:mb-12 max-w-2xl mx-auto text-sm md:text-base">
+        Your medical information is sensitive. We take security seriously.
+      </p>
+    </ScrollAnimation>
 
-            <ScrollAnimationGroup 
-              animation="fadeInUp" 
-              staggerDelay={0.15}
-              duration={0.6}
-            >
-              {(AnimatedItem) => (
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                  <AnimatedItem>
-                    <div className="flex flex-col items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
-                      <div className="flex items-center mb-3">
-                        <Shield className="h-5 w-5 md:h-6 md:w-6 text-black stroke-current fill-none mr-2" />
-                        <h3 className="text-lg md:text-xl font-semibold text-black">HIPAA Compliant</h3>
-                      </div>
-                      <p className="text-sm text-black">Full patient data privacy, adhering to healthcare regulations.</p>
-                    </div>
-                  </AnimatedItem>
+    <ScrollAnimationGroup 
+      animation="fadeInUp" 
+      staggerDelay={0.15}
+      duration={0.6}
+    >
+      {(AnimatedItem) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <AnimatedItem>
+            <div className="flex flex-row items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
+              <Shield className="h-8 w-8 md:h-10 md:w-10 text-teal-600 stroke-current fill-none mr-3 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold text-black">HIPAA Compliant</h3>
+                <p className="text-sm text-black">Full patient data privacy, adhering to healthcare regulations.</p>
+              </div>
+            </div>
+          </AnimatedItem>
 
-                  <AnimatedItem>
-                    <div className="flex flex-col items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
-                      <div className="flex items-center mb-3">
-                        <Lock className="h-5 w-5 md:h-6 md:w-6 text-black stroke-current fill-none mr-2" />
-                        <h3 className="text-lg md:text-xl font-semibold text-black">End-to-End Encrypted</h3>
-                      </div>
-                      <p className="text-sm text-black">AES-256 encryption protects your data from start to finish.</p>
-                    </div>
-                  </AnimatedItem>
+          <AnimatedItem>
+            <div className="flex flex-row items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
+              <Lock className="h-8 w-8 md:h-10 md:w-10 text-teal-600 stroke-current fill-none mr-3 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold text-black">End-to-End Encrypted</h3>
+                <p className="text-sm text-black">AES-256 encryption protects your data from start to finish.</p>
+              </div>
+            </div>
+          </AnimatedItem>
 
-                  <AnimatedItem>
-                    <div className="flex flex-col items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
-                      <div className="flex items-center mb-3">
-                        <FileCheck className="h-5 w-5 md:h-6 md:w-6 text-black stroke-current fill-none mr-2" />
-                        <h3 className="text-lg md:text-xl font-semibold text-black">PHI Redacted</h3>
-                      </div>
-                      <p className="text-sm text-black">Patient identifiers removed, keeping data anonymous.</p>
-                    </div>
-                  </AnimatedItem>
-                </div>
-              )}
-            </ScrollAnimationGroup>
-          </div>
-        </section>
+          <AnimatedItem>
+            <div className="flex flex-row items-start bg-white/10 backdrop-blur-sm p-4 rounded-2xl hover:bg-white/20 transition-colors">
+              <FileCheck className="h-8 w-8 md:h-10 md:w-10 text-teal-600 stroke-current fill-none mr-3 flex-shrink-0" />
+              <div>
+                <h3 className="text-lg md:text-xl font-semibold text-black">PHI Redacted</h3>
+                <p className="text-sm text-black">Patient identifiers removed, keeping data anonymous.</p>
+              </div>
+            </div>
+          </AnimatedItem>
+        </div>
+      )}
+    </ScrollAnimationGroup>
+  </div>
+</section>
 
         {/* Add Traveling Lines Divider */}
         <SectionDivider className="my-8" />
